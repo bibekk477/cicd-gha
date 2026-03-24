@@ -23,8 +23,8 @@ jobs:
 
     - name: Build  Docker Image
       run: |
-      docker build -t bibekk477/gha-argocd-k8s-pipeline:${{ env.GITHUB_SHA }} .
-      echo "Docker image built successfully"
+        docker build -t bibekk477/gha-argocd-k8s-pipeline:${{ env.GITHUB_SHA }} .
+        echo "Docker image built successfully"
 
 
     - name: Push Docker Image
