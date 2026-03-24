@@ -1,8 +1,7 @@
-apiVersion: apps/v1
-kind: service
+apiVersion: v1
+kind: Service
 metadata:
-  name: my-app-service
-  namespace: pyapp
+  name: my-flaskapp-service
 spec:
   selector:
     app: my-app
