@@ -10,6 +10,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Get recent push SHA
+      run: echo "GITHUB_SHA=${GITHUB_SHA::5}" >> $GITHUB_ENV
 
     - name: Build & Push Docker Image
       uses: docker/build-push-action@v4
@@ -18,5 +21,4 @@ jobs:
         push: true
         username: ${{ vars.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: bibekk477/gha-argocd-k8s-pipeline:${GITHUB_SHA::5}
-        
+        tags: bibekk477/gha-argocd-k8s-pipeline:${{ env.GITHUB_SHA }}
