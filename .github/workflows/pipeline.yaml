@@ -11,12 +11,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-- name: Build & Push Docker Image
-  uses: docker/build-push-action@v4
-  with:
-    context: .
-    push: true
-    username: ${{ vars.DOCKER_USERNAME }}
-    password: ${{ secrets.DOCKER_PASSWORD }}
-    tags: bibekk477/gha-argocd-k8s-pipeline:${GITHUB_SHA::5}
+    - name: Build & Push Docker Image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        username: ${{ vars.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: bibekk477/gha-argocd-k8s-pipeline:${GITHUB_SHA::5}
         
