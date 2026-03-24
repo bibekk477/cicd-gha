@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: flaskapp
-          image: bibekk477/gha-argocd-k8s-pipeline:98d5b
+          image: bibekk477/gha-argocd-k8s-pipeline:043c4
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
