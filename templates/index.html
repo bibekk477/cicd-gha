@@ -8,10 +8,26 @@
             background: #0f172a;
             color: white;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
             margin-top: 30px;
+        }
+
+        h3 {
+            margin-top: 10px;
+            color: #94a3b8;
+        }
+
+        .description {
+            max-width: 900px;
+            margin: 20px auto;
+            color: #cbd5e1;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
         }
 
         .pipeline {
@@ -54,9 +70,13 @@
 </head>
 <body>
 
-    <h1>🚀 CI/CD Pipeline Dashboard</h1>
-    <h3>GitHub Actions → Docker → yq → Git → Argo CD → Kubernetes</h3>
+    <h1>Complete CI/CD Pipeline Dashboard</h1>
+    
+    <p class="description">
+        This CI/CD pipeline automates the deployment of a Flask application on <strong>Minikube</strong>. Triggered by a push to the <strong>main</strong> branch, <strong>GitHub Actions</strong> first checks out the code and extracts a shortened commit SHA for versioning. It then logs into <strong>Docker Hub</strong>, builds a Docker image tagged with the commit SHA, and pushes it to the repository. The pipeline uses <strong>yq</strong> to update the Kubernetes deployment manifest with the new image tag, and commits the updated manifest back to <strong>Git</strong>. Finally, <strong>Argo CD</strong> syncs the repository with the Minikube cluster, deploying the updated application to <strong>Kubernetes</strong>, ensuring it is running live. Each stage is tracked with clear success messages, providing visibility into the full CI/CD lifecycle.
+    </p>
 
+    
     <div class="pipeline">
         {% for stage in pipeline %}
             <div class="stage {{ stage.color }}">
