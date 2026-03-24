@@ -17,5 +17,4 @@ minikube service argocd-server -n argocd
 
 
  create secret to pull the private image locally
- kubectl create secret generic image-pull-secret --from-file=.dockerconfigjson=$HOME/.docker/config.json --type=kubernetes.io/dockerconfigjson
-  -n flask-app
+ kubectl create secret docker-registry image-pull-secret --docker-username=YOUR_USERNAME --docker-password=YOUR_ACCESS_TOKEN --docker-email=YOUR_EMAIL -n flask-app
