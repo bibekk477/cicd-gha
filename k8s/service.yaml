@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: service
+metadata:
+  name: my-app-service
+  namespace: pyapp
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
