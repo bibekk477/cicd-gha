@@ -19,6 +19,6 @@ jobs:
       with:
         context: .
         push: true
-        username: ${{ vars.DOCKER_USERNAME }}
+        username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tags: bibekk477/gha-argocd-k8s-pipeline:${{ env.GITHUB_SHA }}
