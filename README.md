@@ -12,3 +12,12 @@ minikube service argocd-server -n argocd
  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"| base64 -d 
 
  for troubleshooting if argocd is not managing the deployment
+ kubectl get applications -n argocd
+ kubectl describe application gha-flaskapp -n argocd
+
+
+ create secret to pull the private image locally
+ kubectl create secret generic image-pull-secret \
+  --from-file=.dockerconfigjson=$HOME/.docker/config.json \
+  --type=kubernetes.io/dockerconfigjson
+  -n flask-app
