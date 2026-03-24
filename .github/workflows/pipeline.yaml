@@ -1,0 +1,23 @@
+name: CICD pipeline for Flask app
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  flask-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build docker image
+      run: "docker build -t bibekk477/gha-argocd-k8s-pipeline:${GITHUB_SHA::5} ."
+
+
+    # - name: Build and push Docker image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     push: true
+    #     tags: bibekk477/gha-argocd-k8s-pipeline:latest
